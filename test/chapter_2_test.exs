@@ -53,6 +53,7 @@ defmodule Chapter_2Test do
     assert Chapter_2.concat([], [3, 4, 5]) == [3, 4, 5]
     assert Chapter_2.concat([1, 2], []) == [1, 2]
     assert Chapter_2.concat([1, 2], [3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert Chapter_2.concat([1, 2, 3], [4]) == [1, 2, 3, 4]
   end
 
   test "2.20 - Sum(S)" do
@@ -94,5 +95,13 @@ defmodule Chapter_2Test do
     refute Chapter_2.sorted?([3, 2])
     refute Chapter_2.sorted?([3, 2, 1])
     refute Chapter_2.sorted?([3, 2, 5])
+  end
+
+  test "2.24 - InsertIntoSorted" do
+    assert Chapter_2.insert_into_sorted(2, []) == [2]
+    assert Chapter_2.insert_into_sorted(0, [1, 3, 4]) == [0, 1, 3, 4]
+    assert Chapter_2.insert_into_sorted(2, [1, 3, 4]) == [1, 2, 3, 4]
+    assert Chapter_2.insert_into_sorted(2, [2, 3, 4]) == [2, 2, 3, 4]
+    assert Chapter_2.insert_into_sorted(9, [2, 3, 4]) == [2, 3, 4, 9]
   end
 end

@@ -146,4 +146,19 @@ defmodule Chapter_2 do
     [tail_head | _] = s_tail
     if s_head > tail_head, do: false, else: sorted?(s_tail)
   end
+
+  @spec insert_into_sorted(any, [any]) :: [any]
+  @doc """
+  Def 2.24 - InsertIntoSorted(x, S) is
+  1. <x> if S is empty
+  2. <x . S> if x <= head(S)
+  3. <head(S). InsertIntoSorted(x, tail(S))> otherwise.
+  """
+  def insert_into_sorted(x, []), do: [x]
+
+  def insert_into_sorted(x, [s_head | s_tail]) when x <= s_head,
+    do: concatlist([[x], [s_head], s_tail])
+
+  def insert_into_sorted(x, [s_head | s_tail]),
+    do: concat([s_head], insert_into_sorted(x, s_tail))
 end
