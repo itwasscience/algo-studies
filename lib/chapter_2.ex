@@ -79,15 +79,46 @@ defmodule Chapter_2 do
   2. (Head(S) . Concatenation(tail(S), T)) otherwise.
   """
   def concat([], t), do: t
-  def concat([s_head | s_tail], t), do: [s_head] ++ concat(s_tail, t)
+  def concat([s_head | s_tail], t), do: [s_head | concat(s_tail, t)]
 
   @spec sum([float]) :: float
   @doc """
-  Sum(S) {S is a nonempty sequence to be summed}
+  Def 2.20 - Sum(S) {S is a nonempty sequence to be summed}
   1. a if S is the sequence(a) - {i.e, if S has length 1}
   2. head(S) + Sum(tail(S)) otherwise.
   """
   def sum([]), do: 0
   def sum([s_head]), do: s_head
   def sum([s_head | s_tail]), do: s_head + sum(s_tail)
+
+  @spec max(any) :: any
+  @doc """
+  Def 2.21 - Max(S)
+  1. Max(<a>) = a
+  2. Max(<a.S>) = a if a > Max(S)
+  2'. Max(<a.S>) = Max(S) if a <= Max(S)
+  """
+  def max([]), do: nil
+  def max([s_head]), do: s_head
+
+  def max([s_head | s_tail]) do
+    if s_head <= max(s_tail), do: max(s_tail), else: s_head
+  end
+
+  @spec min([any]) :: any
+  @doc """
+  Def 2.21.b - Min(S)
+  1. Min(<a>) = a
+  2. Min(<a.S>) = a if a < Min(S)
+  2'. Min(<a.S>) = Min(S) if a >= Min(S)
+  Note: This was left as a supplemental excerisice
+
+  """
+  #  def max(a) when not is_list(a), do: a
+  def min([]), do: nil
+  def min([s_head]), do: s_head
+
+  def min([s_head | s_tail]) do
+    if s_head >= min(s_tail), do: min(s_tail), else: s_head
+  end
 end

@@ -63,4 +63,18 @@ defmodule Chapter_2Test do
     # Floating Point strikes again.
     assert_in_delta Chapter_2.sum([3.14, 1.73, 60.3]), 65.17, 0.01
   end
+
+  test "2.21 - Max(S)" do
+    assert Chapter_2.max([]) == nil
+    assert Chapter_2.max([1, 2, 3]) == 3
+    assert Chapter_2.max([3, 2, 1]) == 3
+    assert Chapter_2.max([3]) == 3
+  end
+
+  test "2.21.b - Min(S)" do
+    assert Chapter_2.min([]) == nil
+    assert Chapter_2.min([1, 2, 3]) == 1
+    assert Chapter_2.min([3, 2, 1]) == 1
+    assert Chapter_2.min([3]) == 3
+  end
 end
