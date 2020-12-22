@@ -31,4 +31,13 @@ defmodule Chapter_2Test do
     assert Chapter_2.get_length([1, 2]) == 2
     assert Chapter_2.get_length([1, 2, 3, 4, 5]) == 5
   end
+
+  test "2.15 - Get kth Element of S - 0 Indexed" do
+    assert Chapter_2.get_elem(0, [0, 1, 2, 3, 4, 5]) == 0
+    assert Chapter_2.get_elem(4, [0, 1, 2, 3, 4, 5]) == 4
+    assert Chapter_2.get_elem(0, []) == nil
+    # Out of Range
+    assert Chapter_2.get_elem(34, [1, 2, 3]) == nil
+    assert Chapter_2.get_elem(34, [1, 2, 3]) == nil
+  end
 end

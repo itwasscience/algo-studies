@@ -16,7 +16,7 @@ defmodule Chapter_2 do
   def are_equal?([head_s | tail_s], [head_t | tail_t]),
     do: head_s == head_t and are_equal?(tail_s, tail_t)
 
-  @spec is_member_of?(any, [any]) :: false
+  @spec is_member_of?(any, [any]) :: boolean
   @doc """
   Def 2.1.3 - ElementOf(x, S) is
   1. FALSE if S is empty
@@ -39,4 +39,20 @@ defmodule Chapter_2 do
 
   def get_length([_s_head | s_tail]),
     do: 1 + length(s_tail)
+
+  @spec get_elem(any, [any]) :: any
+  @doc """
+  Def 2.1.5 - Kth(k, S) is
+  1. undefined, if S is empty
+  1'. head(S) if k= 1
+  2. Kth(k - 1, tail(S)) otherwise
+
+  Note: This utilizes 0th indexing
+  """
+  def get_elem(_idx, []), do: nil
+  def get_elem(-1, _), do: nil
+  def get_elem(0, [s_head | _s_tail]), do: s_head
+
+  def get_elem(idx, [_s_head | s_tail]),
+    do: get_elem(idx - 1, s_tail)
 end
