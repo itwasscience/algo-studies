@@ -77,4 +77,10 @@ defmodule Chapter_2Test do
     assert Chapter_2.min([3, 2, 1]) == 1
     assert Chapter_2.min([3]) == 3
   end
+
+  test "2.22 - Concatlist can concatenate multiple lists" do
+    assert Chapter_2.concatlist([[1, 2]]) == [1, 2]
+    assert Chapter_2.concatlist([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
+    assert Chapter_2.concatlist([[1, 2], [3, 4, 5], [6]]) == [1, 2, 3, 4, 5, 6]
+  end
 end

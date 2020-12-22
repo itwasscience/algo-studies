@@ -121,4 +121,13 @@ defmodule Chapter_2 do
   def min([s_head | s_tail]) do
     if s_head >= min(s_tail), do: min(s_tail), else: s_head
   end
+
+  @doc """
+  Def 2.22 - Concatlist If elemnts of S are all sequences
+  then a function concatlist may be defined by:
+  1. Concatlist(<>) = <>
+  2. Concatlist(<s.S> = Concatenation(s,Concatlist(S))
+  """
+  def concatlist([]), do: []
+  def concatlist([s_head | s_tail]), do: concat(s_head, concatlist(s_tail))
 end
