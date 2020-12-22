@@ -42,7 +42,7 @@ defmodule Chapter_2 do
 
   @spec get_elem(any, [any]) :: any
   @doc """
-  Def 2.1.5 - Kth(k, S) is
+  Def 2.15 - Kth(k, S) is
   1. undefined, if S is empty
   1'. head(S) if k= 1
   2. Kth(k - 1, tail(S)) otherwise
