@@ -80,4 +80,14 @@ defmodule Chapter_2 do
   """
   def concat([], t), do: t
   def concat([s_head | s_tail], t), do: [s_head] ++ concat(s_tail, t)
+
+  @spec sum([float]) :: float
+  @doc """
+  Sum(S) {S is a nonempty sequence to be summed}
+  1. a if S is the sequence(a) - {i.e, if S has length 1}
+  2. head(S) + Sum(tail(S)) otherwise.
+  """
+  def sum([]), do: 0
+  def sum([s_head]), do: s_head
+  def sum([s_head | s_tail]), do: s_head + sum(s_tail)
 end

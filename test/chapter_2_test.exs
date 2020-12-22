@@ -54,4 +54,13 @@ defmodule Chapter_2Test do
     assert Chapter_2.concat([1, 2], []) == [1, 2]
     assert Chapter_2.concat([1, 2], [3, 4, 5]) == [1, 2, 3, 4, 5]
   end
+
+  test "2.20 - Sum(S)" do
+    assert Chapter_2.sum([1, 2, 3]) == 6
+    assert Chapter_2.sum([1, 2, 3, 4]) == 10
+    assert Chapter_2.sum([1]) == 1
+    assert Chapter_2.sum([]) == 0
+    # Floating Point strikes again.
+    assert_in_delta Chapter_2.sum([3.14, 1.73, 60.3]), 65.17, 0.01
+  end
 end
