@@ -47,4 +47,11 @@ defmodule Chapter_2Test do
     assert capture_io(fn -> Chapter_2.traverse([1, 2, 3, 4, 5]) end) == "12345"
     assert capture_io(fn -> Chapter_2.traverse([]) end) == ""
   end
+
+  test "2.19 - Concatenation of S, T" do
+    assert Chapter_2.concat([], []) == []
+    assert Chapter_2.concat([], [3, 4, 5]) == [3, 4, 5]
+    assert Chapter_2.concat([1, 2], []) == [1, 2]
+    assert Chapter_2.concat([1, 2], [3, 4, 5]) == [1, 2, 3, 4, 5]
+  end
 end

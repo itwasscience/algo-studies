@@ -71,4 +71,13 @@ defmodule Chapter_2 do
     IO.write(s_head)
     traverse(s_tail)
   end
+
+  @spec concat([any], [any]) :: any
+  @doc """
+  Def 2.19 - Concatenation(S, T) is
+  1. T, if S is empty
+  2. (Head(S) . Concatenation(tail(S), T)) otherwise.
+  """
+  def concat([], t), do: t
+  def concat([s_head | s_tail], t), do: [s_head] ++ concat(s_tail, t)
 end
