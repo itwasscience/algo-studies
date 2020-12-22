@@ -161,4 +161,15 @@ defmodule Chapter_2 do
 
   def insert_into_sorted(x, [s_head | s_tail]),
     do: concat([s_head], insert_into_sorted(x, s_tail))
+
+  @spec insertion_sort([any]) :: [any]
+  @doc """
+  Def 2.25 InsertionSort(S)
+  1. () if S is empty
+  2. InsertIntoSorted(head(S), InsertionSort(tail(S))) otherwise.
+  """
+  def insertion_sort([]), do: []
+
+  def insertion_sort([s_head | s_tail]),
+    do: insert_into_sorted(s_head, insertion_sort(s_tail))
 end

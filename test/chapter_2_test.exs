@@ -104,4 +104,10 @@ defmodule Chapter_2Test do
     assert Chapter_2.insert_into_sorted(2, [2, 3, 4]) == [2, 2, 3, 4]
     assert Chapter_2.insert_into_sorted(9, [2, 3, 4]) == [2, 3, 4, 9]
   end
+
+  test "2.25 - InsertionSort(S)" do
+    assert Chapter_2.insertion_sort([]) == []
+    assert Chapter_2.insertion_sort([1, 2, 3]) == [1, 2, 3]
+    assert Chapter_2.insertion_sort([3, 1, 2]) == [1, 2, 3]
+  end
 end
