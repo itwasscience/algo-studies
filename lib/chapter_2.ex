@@ -55,4 +55,20 @@ defmodule Chapter_2 do
 
   def get_elem(idx, [_s_head | s_tail]),
     do: get_elem(idx - 1, s_tail)
+
+  @spec traverse([any]) :: :ok
+  @doc """
+  Def 2.18 - Traverse(S)
+  if S is nonempty then
+  1. print head(S)
+  2. traverse(tail(S))
+
+  Note: This prints to the screen.
+  """
+  def traverse([]), do: IO.write("")
+
+  def traverse([s_head | s_tail]) do
+    IO.write(s_head)
+    traverse(s_tail)
+  end
 end

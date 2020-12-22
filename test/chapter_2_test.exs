@@ -1,5 +1,6 @@
 defmodule Chapter_2Test do
   use ExUnit.Case
+  import ExUnit.CaptureIO
   doctest Algos
 
   test "2.12 - two equal lists are equal" do
@@ -39,5 +40,11 @@ defmodule Chapter_2Test do
     # Out of Range
     assert Chapter_2.get_elem(34, [1, 2, 3]) == nil
     assert Chapter_2.get_elem(34, [1, 2, 3]) == nil
+  end
+
+  test "2.18 - Traverse(S)" do
+    assert capture_io(fn -> Chapter_2.traverse(["h", "e", "l", "l", "o"]) end) == "hello"
+    assert capture_io(fn -> Chapter_2.traverse([1, 2, 3, 4, 5]) end) == "12345"
+    assert capture_io(fn -> Chapter_2.traverse([]) end) == ""
   end
 end
