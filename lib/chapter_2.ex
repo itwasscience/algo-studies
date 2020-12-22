@@ -122,6 +122,7 @@ defmodule Chapter_2 do
     if s_head >= min(s_tail), do: min(s_tail), else: s_head
   end
 
+  @spec concatlist([[any]]) :: [any]
   @doc """
   Def 2.22 - Concatlist If elemnts of S are all sequences
   then a function concatlist may be defined by:
@@ -130,4 +131,19 @@ defmodule Chapter_2 do
   """
   def concatlist([]), do: []
   def concatlist([s_head | s_tail]), do: concat(s_head, concatlist(s_tail))
+
+  @spec sorted?(maybe_improper_list) :: false | nil | true
+  @doc """
+  Def 2.23 - Sorted(S) - {S is a nonempty sequence}
+  1. TRUE if tail(S) is empty
+  2. FALSE if head(S) > head(tail(S))
+  3. Sorted(tail(S)) otherwise.
+  """
+  def sorted?([]), do: nil
+  def sorted?([_]), do: true
+
+  def sorted?([s_head | s_tail]) do
+    [tail_head | _] = s_tail
+    if s_head > tail_head, do: false, else: sorted?(s_tail)
+  end
 end

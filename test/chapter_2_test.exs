@@ -83,4 +83,16 @@ defmodule Chapter_2Test do
     assert Chapter_2.concatlist([[1, 2], [3, 4, 5]]) == [1, 2, 3, 4, 5]
     assert Chapter_2.concatlist([[1, 2], [3, 4, 5], [6]]) == [1, 2, 3, 4, 5, 6]
   end
+
+  test "2.23 - Determine if list is sorted" do
+    # Valids
+    assert Chapter_2.sorted?([]) == nil
+    assert Chapter_2.sorted?([1, 2, 3])
+    assert Chapter_2.sorted?([4, 5, 6])
+    assert Chapter_2.sorted?([1])
+    # Invalids
+    refute Chapter_2.sorted?([3, 2])
+    refute Chapter_2.sorted?([3, 2, 1])
+    refute Chapter_2.sorted?([3, 2, 5])
+  end
 end
